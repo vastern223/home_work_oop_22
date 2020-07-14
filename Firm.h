@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 #include <string>
 using namespace std;
 
@@ -14,6 +15,7 @@ private:
 	string Kind_of_activity;
 
 public:
+
 	Firm();
 
 	Firm(string Company_name, string Owner, string  Phone, string Address, string Kind_of_activity);
@@ -28,20 +30,12 @@ public:
 
 	string Get_Address();
 	
-
 	string Get_Kind_of_activity();
 
-	void Set_Company_name(string Company_name);
 	
-	void Set_Owner(string Owner);
-	
-	void Set_Phone(string Phone);
-	
-	void Set_Address(string Address);
-	
-	void Set_Kind_of_activity(string Kind_of_activity);
+	friend ofstream& operator<<(ofstream& fout, const Firm& lap);
 
-
+	friend ifstream& operator>>(ifstream& fin, Firm& lap);
 };
 
 

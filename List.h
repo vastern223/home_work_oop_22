@@ -33,7 +33,6 @@ public:
 	
 	void AddToHead(Firm firm);
 	
-
 	void AddToTail(Firm firm);
 	
 	void DeleteHead();
@@ -41,33 +40,24 @@ public:
 	void DeleteTail();
 	
 	void Print_all()const;
-	
 
 	void Find__by_Company_name(string firm);
 	
-
 	void Find__by_Owner(string owner);
 	
-
 	void Find__by_Phone(string phone);
 	
-
 	void Find__by_Address(string address);
 	
-
 	void Find__by_Kind_of_activity(string activity);
 	
 	void DeleteAll();
 	
-	
 	~List();
 	
-	void Save_data_to_file(ofstream& of, const List& directory);
-	
-	void Load_data_to_file(ifstream& fin, List& directory);
-	
-	friend ofstream& operator<<(ofstream& of, const List& lap);
-	friend ifstream& operator>>(ifstream& ifs, List& lap);
+	friend ofstream& operator<<(ofstream& fout, const List& lap);
+
+	friend ifstream& operator>>(ifstream& fin, List& lap);
 	
 };
 

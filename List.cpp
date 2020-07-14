@@ -193,55 +193,32 @@ List::~List()
 	DeleteAll();
 }
 
-void List::Save_data_to_file(ofstream& of, const List& directory)
-{
-	of << directory;
-}
-void List::Load_data_to_file(ifstream& fin, List& directory)
-{
-	fin >> directory;
-}
 
 ofstream& operator<<(ofstream& fout, const List& lap)
 {
-
 	List::Node* current = lap.head;
-
+	fout << lap.size << endl;
 	for (int i = 0; i < lap.size; i++)
 	{
-		fout << current->firm.Get_Company_name() << endl;
-		fout << current->firm.Get_Owner() << endl;
-		fout << current->firm.Get_Phone() << endl;
-		fout << current->firm.Get_Address() << endl;
-		fout << current->firm.Get_Kind_of_activity() << endl;
+		fout << current->firm;
 		current = current->next;
 	}
 
 	return fout;
 }
 
+
 ifstream& operator>>(ifstream& fin, List& lap)
 {
-	while (!fin.eof())
+	int size;
+	fin >> size;
+	for (size_t i = 0; i < size; i++)
 	{
-		string change;
 		Firm buff;
-		fin >> change;
-		buff.Set_Company_name(change);
-		fin >> change;
-		buff.Set_Owner(change);
-		fin >> change;
-		buff.Set_Phone(change);
-		fin >> change;
-		buff.Set_Address(change);
-		fin >> change;
-		buff.Set_Kind_of_activity(change);
-
-		if (!fin.eof())
-			lap.AddToTail(buff);
+		fin >> buff;
+		lap.AddToTail(buff);
 	}
-
+		
 	return fin;
-
-}
+ }
 

@@ -140,12 +140,12 @@ void Directory::Show_all_entries()const
 void Directory::Save_datafile()
 {
 	ofstream fout(name_file);
-	directory.Save_data_to_file(fout, directory);
+    fout<<directory;
 	fout.close();
 }
 void  Directory::Load_datafile()
 {
 	ifstream fin(name_file);
-	directory.Load_data_to_file(fin, directory);
+	fin >> directory;
 	fin.close();
 }

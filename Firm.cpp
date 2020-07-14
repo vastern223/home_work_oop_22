@@ -40,30 +40,29 @@ string Firm::Get_Kind_of_activity()
 	return 	Kind_of_activity;
 }
 
-void Firm::Set_Company_name(string Company_name)
-{
-	this->Company_name = Company_name;
 
+
+ofstream& operator<<(ofstream& fout, const Firm& lap)
+{
+	
+	 fout << lap.Company_name<< endl;
+	 fout << lap.Owner << endl;
+	 fout << lap.Phone << endl;
+	 fout << lap.Address << endl;
+	 fout << lap.Kind_of_activity << endl;
+
+	
+	return fout;
 }
 
-void Firm::Set_Owner(string Owner)
+ifstream& operator>>(ifstream& fin, Firm& lap)
 {
-	this->Owner = Owner;
+	fin >> lap.Company_name;
+	fin >> lap.Owner;
+	fin >> lap.Phone;
+	fin >> lap.Address;
+	fin >> lap.Kind_of_activity;
 
+	return fin;
 }
 
-void Firm::Set_Phone(string Phone)
-{
-	this->Phone = Phone;
-
-}
-void Firm:: Set_Address(string Address)
-{
-	this->Address = Address;
-
-}
-void Firm::Set_Kind_of_activity(string Kind_of_activity)
-{
-	this->Kind_of_activity = Kind_of_activity;
-
-}

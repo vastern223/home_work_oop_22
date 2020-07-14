@@ -14,6 +14,7 @@ private:
 	string Phone;
 	string Address;
 	string Kind_of_activity;
+
 	List directory;
 
 public:
@@ -25,7 +26,6 @@ public:
 	void Search_by_Company_name();
 
 	void Search_by_Owner();
-
 
 	void Search_by_Phone();
 
